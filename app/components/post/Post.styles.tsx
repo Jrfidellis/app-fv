@@ -21,11 +21,6 @@ export const PostCard = styled.View`
     background: #fff;
     width: 100%;
     padding: 5px 5px 10px 20px;
-<<<<<<< HEAD
-    elevation: 5;
-=======
-
->>>>>>> ea0c0cd0b362c8fb9272ecf6b52088c4e0cf5cea
     display: flex;
     flex-direction: row;
     justify-content: space-between;

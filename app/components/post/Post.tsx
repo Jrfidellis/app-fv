@@ -1,5 +1,5 @@
 import React from 'react';
-import { Autor } from '../autor/Autor';
+import { Autor } from '../autorPost/AutorPost';
 
 import { PostCard, Line, Title, Image, Wrapper } from './Post.styles';
 

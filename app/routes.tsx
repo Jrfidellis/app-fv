@@ -12,13 +12,12 @@ export function Routes() {
     <Tab.Navigator 
       initialRouteName="Feed"
     >
-      
       <Tab.Screen name="Menu"  
-                  component={MenuScreen} />
+        component={MenuScreen} />
       <Tab.Screen name="Feed" 
-                  component={FeedScreen} />
+        component={FeedScreen} />
       <Tab.Screen name="Agenda"  
-                  component={AgendaScreen} />
+        component={AgendaScreen} />
     </Tab.Navigator>
   );
 }

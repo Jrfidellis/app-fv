@@ -7,19 +7,11 @@ import { Post } from '../components/post/Post';
 const MenuScreen = () => {
   return (
     <Holder>
-        <Text>Voce esta no Menu</Text>
-        <Post/>
+      <Text>Voce esta no Menu</Text>
+      <Post/>
     </Holder>
   );
 };
-
-const Texto = styled.Text`
-  color: red;
-  position: absolute;
-  top: 80px;
-  left: 20px;
-  font-size: 16px;
-`
 
 const Holder = styled.View`
   background: #efefef;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Wrapper, Image, Text } from './Autor.styles';
+import { Wrapper, Image, Text } from './AutorPost.styles';
 
 // recebe nome, foto, likes e data
 // exibe campos conforme props

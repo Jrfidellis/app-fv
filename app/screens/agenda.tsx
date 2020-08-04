@@ -7,8 +7,8 @@ import { Post } from '../components/post/Post';
 const AgendaScreen = () => {
   return (
     <Holder>
-        <Text>Voce esta na Agenda</Text>
-        <Post/>
+      <Text>Voce esta na Agenda</Text>
+      <Post/>
     </Holder>
   );
 };

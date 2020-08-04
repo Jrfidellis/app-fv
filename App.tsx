@@ -1,42 +1,16 @@
 import React from 'react';
-import styled from 'styled-components/native'; 
-import { Post } from './app/components/post/Post';
+import { SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { Routes } from './app/routes';
-import { Post } from './app/components/post/Post';
 
-const App = () => {
+export const App = () => {
   return (
-    <Holder>
-      <Routes/>
-    </Holder>
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <Routes/>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 };
-
-const Texto = styled.Text`
-  color: red;
-  position: absolute;
-  top: 80px;
-  left: 20px;
-  font-size: 16px;
-`
-const Holder = styled.View`
-  background: #efefef;
-  width: 100%;
-  height: 100%;
-  padding: 100px 20px;
-`;
-
-<<<<<<< HEAD
-export default App;
-=======
-const App = () => {
-  return (
-    <Holder>
-      <Texto>Teste</Texto>
-      <Post/>
-    </Holder>
-  );
-};
->>>>>>> ea0c0cd0b362c8fb9272ecf6b52088c4e0cf5cea
 
