@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native'; 
+import { Post } from './app/components/post/Post';
 
 import { Routes } from './app/routes';
 import { Post } from './app/components/post/Post';
@@ -26,5 +27,16 @@ const Holder = styled.View`
   padding: 100px 20px;
 `;
 
+<<<<<<< HEAD
 export default App;
+=======
+const App = () => {
+  return (
+    <Holder>
+      <Texto>Teste</Texto>
+      <Post/>
+    </Holder>
+  );
+};
+>>>>>>> ea0c0cd0b362c8fb9272ecf6b52088c4e0cf5cea
 
