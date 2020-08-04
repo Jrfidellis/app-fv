@@ -10,11 +10,13 @@ const Tab = createMaterialTopTabNavigator();
 export function Routes() {
   return (
     <Tab.Navigator 
-      initialRouteName="Feed" //Rota incial
+      initialRouteName="Feed"
       tabBarOptions={{
-        indicatorStyle: { backgroundColor: '#0F90FA' }, //Estilo barra de indicação
-        labelStyle: { fontSize: 18, fontWeight: 'bold', color: '#fff', textTransform: 'none' }, //Estilo Fonte
-        style: {backgroundColor: '#333'} //Estilo Tabbar
+        indicatorStyle: { backgroundColor: '#0F90FA', height: '10%' }, // Estilo barra de indicação
+        labelStyle: { fontSize: 16, fontWeight: 'bold', textTransform: 'none' },
+        activeTintColor: '#0F90FA',
+        inactiveTintColor: '#FFF',
+        style: { backgroundColor: '#333' } // Estilo Tab
       }}
     >
 
