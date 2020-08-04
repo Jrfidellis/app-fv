@@ -1,13 +1,14 @@
 import React from 'react';
-import styled from 'styled-components/native'; 
+import { Text } from 'react-native';
+import styled from 'styled-components/native';
 
-import { Routes } from './app/routes';
-import { Post } from './app/components/post/Post';
+import { Post } from '../components/post/Post';
 
-const App = () => {
+const FeedScreen = () => {
   return (
     <Holder>
-      <Routes/>
+        <Text>Voce esta no Feed</Text>
+        <Post/>
     </Holder>
   );
 };
@@ -26,5 +27,4 @@ const Holder = styled.View`
   padding: 100px 20px;
 `;
 
-export default App;
-
+export default FeedScreen;

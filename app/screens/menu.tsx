@@ -1,13 +1,14 @@
 import React from 'react';
+import { Text } from 'react-native';
 import styled from 'styled-components/native'; 
 
-import { Routes } from './app/routes';
-import { Post } from './app/components/post/Post';
+import { Post } from '../components/post/Post';
 
-const App = () => {
+const MenuScreen = () => {
   return (
     <Holder>
-      <Routes/>
+        <Text>Voce esta no Menu</Text>
+        <Post/>
     </Holder>
   );
 };
@@ -19,6 +20,7 @@ const Texto = styled.Text`
   left: 20px;
   font-size: 16px;
 `
+
 const Holder = styled.View`
   background: #efefef;
   width: 100%;
@@ -26,5 +28,4 @@ const Holder = styled.View`
   padding: 100px 20px;
 `;
 
-export default App;
-
+export default MenuScreen;
