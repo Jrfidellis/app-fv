@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 
 import { Post } from '../components/post/Post';
 
-const FeedScreen = () => {
+export const FeedScreen = () => {
   return (
     <Holder>
       <Text>Voce esta no Feed</Text>
@@ -19,5 +19,3 @@ const Holder = styled.View`
   height: 100%;
   padding: 100px 20px;
 `;
-
-export default FeedScreen;

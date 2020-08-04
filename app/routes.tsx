@@ -1,9 +1,9 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import FeedScreen from './screens/feed';
-import AgendaScreen from './screens/agenda';
-import MenuScreen from './screens/menu';
+import { FeedScreen } from './screens/feed';
+import { AgendaScreen } from './screens/agenda';
+import { MenuScreen } from './screens/menu';
 
 const Tab = createMaterialTopTabNavigator();
 
