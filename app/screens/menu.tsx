@@ -2,20 +2,15 @@ import React from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native'; 
 
-import { Post } from '../components/post/Post';
-
 export const MenuScreen = () => {
   return (
-    <Holder>
-      <Text>Voce esta no Menu</Text>
-      <Post/>
-    </Holder>
+    <Container>
+      <Text>Menu</Text>
+    </Container>
   );
 };
 
-const Holder = styled.View`
-  background: #efefef;
-  width: 100%;
-  height: 100%;
-  padding: 100px 20px;
+const Container = styled.View`
+  flex: 1;
+  padding: 20px 10px;
 `;

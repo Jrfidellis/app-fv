@@ -10,7 +10,7 @@ export const Image = styled.ImageBackground`
     height: 15px;
     width: 15px;
     border-radius: 100px;
-    background: #333;
+    background: ${props => props.theme.colors.black};
     margin-right: 5px;
 `;
 

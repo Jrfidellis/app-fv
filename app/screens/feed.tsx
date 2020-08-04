@@ -1,21 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
 import styled from 'styled-components/native';
 
 import { Post } from '../components/post/Post';
 
 export const FeedScreen = () => {
   return (
-    <Holder>
-      <Text>Voce esta no Feed</Text>
+    <Container>
       <Post/>
-    </Holder>
+    </Container>
   );
 };
 
-const Holder = styled.View`
-  background: #efefef;
-  width: 100%;
-  height: 100%;
-  padding: 100px 20px;
+const Container = styled.View`
+  flex: 1;
+  padding: 20px 10px;
 `;

@@ -1,5 +1,7 @@
 import React from 'react';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator, MaterialTopTabBarOptions } from '@react-navigation/material-top-tabs';
+
+import { theme } from './assets/styles/theme';
 
 import { FeedScreen } from './screens/feed';
 import { AgendaScreen } from './screens/agenda';
@@ -10,14 +12,9 @@ const Tab = createMaterialTopTabNavigator();
 export function Routes() {
   return (
     <Tab.Navigator 
-      initialRouteName="Feed" //Rota incial
-      tabBarOptions={{
-        indicatorStyle: { backgroundColor: '#0F90FA' }, //Estilo barra de indicação
-        labelStyle: { fontSize: 18, fontWeight: 'bold', color: '#fff', textTransform: 'none' }, //Estilo Fonte
-        style: {backgroundColor: '#333'} //Estilo Tabbar
-      }}
+      initialRouteName="Feed"
+      tabBarOptions={tapBarOptions}
     >
-
       <Tab.Screen name="Menu"  
         component={MenuScreen} />
       <Tab.Screen name="Feed" 
@@ -27,3 +24,11 @@ export function Routes() {
     </Tab.Navigator>
   );
 }
+
+const tapBarOptions: MaterialTopTabBarOptions = {
+  indicatorStyle: { backgroundColor: theme.colors.theme, height: '10%' }, // Estilo barra de indicação
+  labelStyle: { fontSize: 16, fontWeight: 'bold', textTransform: 'none' },
+  activeTintColor: theme.colors.theme,
+  inactiveTintColor: theme.colors.white,
+  style: { backgroundColor: theme.colors.black } // Estilo Tab
+};
