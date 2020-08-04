@@ -8,15 +8,13 @@ import { DonateCard as Donate } from '../components/menu/Donate'
 export const MenuScreen = () => {
   return (
     <Container>
-      <Text>Voce esta no Menu</Text>
       <Donate/>
       <About/>
-      <Text>Menu</Text>
     </Container>
   );
 };
 
 const Container = styled.View`
   flex: 1;
-  padding: 20px 10px;
+  padding: 20px;
 `;
