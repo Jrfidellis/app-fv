@@ -1,16 +1,10 @@
 import React from 'react';
 
-import { PostCard, Title, Desc, Wrapper } from './About.styles';
+import { MenuCard } from './MenuCard';
 
-export const DonateCard = () => <>
-    <PostCard>
-        <Wrapper>
-            <Title>
-                Doar para o Folego da Vida
-            </Title>
-            <Desc>
-                Doe para suportar os trabalhos do Fôlego de Vida!
-            </Desc>
-        </Wrapper>
-    </PostCard>
-</>
+export const DonateCard = () => 
+    <MenuCard 
+        title='Doar para o Fôlego da Vida' 
+        desc='Doe para suportar os trabalhos do Fôlego de Vida!'
+        color='#0BD55C'
+    />
