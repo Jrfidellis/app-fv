@@ -1,6 +1,8 @@
 import React from 'react';
 import { createMaterialTopTabNavigator, MaterialTopTabBarOptions } from '@react-navigation/material-top-tabs';
 
+import { theme } from './assets/styles/theme';
+
 import { FeedScreen } from './screens/feed';
 import { AgendaScreen } from './screens/agenda';
 import { MenuScreen } from './screens/menu';
@@ -24,9 +26,9 @@ export function Routes() {
 }
 
 const tapBarOptions: MaterialTopTabBarOptions = {
-  indicatorStyle: { backgroundColor: '#0F90FA', height: '10%' }, // Estilo barra de indicação
+  indicatorStyle: { backgroundColor: theme.colors.theme, height: '10%' }, // Estilo barra de indicação
   labelStyle: { fontSize: 16, fontWeight: 'bold', textTransform: 'none' },
-  activeTintColor: '#0F90FA',
-  inactiveTintColor: '#FFF',
-  style: { backgroundColor: '#333' } // Estilo Tab
+  activeTintColor: theme.colors.theme,
+  inactiveTintColor: theme.colors.white,
+  style: { backgroundColor: theme.colors.black } // Estilo Tab
 };
