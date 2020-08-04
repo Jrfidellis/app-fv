@@ -7,13 +7,13 @@ interface MenuCardProps {
     desc: string;
 }
 
-export const MenuCard: React.FC<MenuCardProps> = (props) => 
-    <Card style={{ backgroundColor: props.color }}>
+export const MenuCard: React.FC<MenuCardProps> = (props, {navigation}) => 
+    <Card onPress={() => navigate('Donation')} style={{ backgroundColor: props.color }}>
         <Title>{props.title}</Title>
         <Desc>{props.desc}</Desc>
     </Card>
 
-const Card = styled.View`
+export const Card = styled.TouchableOpacity`
     height: 80px;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
