@@ -1,10 +1,11 @@
 {
-  "name": "AppFV",
+  "name": "app-fv",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android --no-jetifier",
     "ios": "react-native run-ios",
+    "ios-se": "react-native run-ios --simulator='iPhone SE'",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"

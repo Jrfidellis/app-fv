@@ -1,15 +1,16 @@
 import React from 'react';
-import { Text } from 'react-native';
+
 import styled from 'styled-components/native'; 
 
-import { AboutCard as About } from '../components/menu/About';
-import { DonateCard as Donate } from '../components/menu/Donate'
+import { AboutCard } from '../components/menu/About';
+import { DonateCard } from '../components/menu/Donate'
 
-export const MenuScreen = ({navigation}) => {
+
+export const MenuScreen = () => {
   return (
     <Container>
-      <Donate/>
-      <About/>
+      <DonateCard/>
+      <AboutCard/>
     </Container>
   );
 };

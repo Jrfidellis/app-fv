@@ -1,17 +1,21 @@
 import React from 'react'
 import styled from 'styled-components/native';
 
-interface MenuCardProps {
+import { TouchableOpacityProps } from 'react-native';
+
+interface MenuCardProps extends TouchableOpacityProps {
     color: string;
     title: string;
     desc: string;
 }
 
-export const MenuCard: React.FC<MenuCardProps> = (props, {navigation}) => 
-    <Card onPress={() => navigate('Donation')} style={{ backgroundColor: props.color }}>
+export const MenuCard: React.FC<MenuCardProps> = (props) => {
+    return (<Card onPress={props.onPress} style={{ backgroundColor: props.color }}>
         <Title>{props.title}</Title>
         <Desc>{props.desc}</Desc>
-    </Card>
+    </Card>)
+}
+    
 
 export const Card = styled.TouchableOpacity`
     height: 80px;

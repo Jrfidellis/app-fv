@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, StyleProp, ViewStyle } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { Routes } from './app/routes';
+import { Routes } from './app/routes/routes';
 import { theme, Theme } from './app/assets/styles/theme';
 
 export const App = () => {
@@ -10,7 +10,7 @@ export const App = () => {
     <NavigationContainer>
       <Theme>
         <SafeAreaView style={safeAreaStyle}>
-            <Routes/>
+          <Routes/>
         </SafeAreaView>
       </Theme>
     </NavigationContainer>
