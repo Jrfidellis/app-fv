@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native'; 
 
-import { AboutCard as About } from '../components/menu/About'
+import { AdressButtonCard } from '../components/about/adressButton'
 
 export const AboutScreen = () => {
   return (
     <Container>
-      <About/>
+      <AdressButtonCard/>
     </Container>
   );
 };
