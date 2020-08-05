@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, StyleProp, ViewStyle } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+
+import SplashScreen from 'react-native-splash-screen';
 
 import { Routes } from './app/routes/routes';
 import { theme, Theme } from './app/assets/styles/theme';
 
 export const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <NavigationContainer>
       <Theme>
