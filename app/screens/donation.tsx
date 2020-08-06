@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { DonateCard as Donate } from '../components/donation/donationCard'
+import { DonateCards } from '../components/donation/DonationCard'
 
 export const DonationScreen = () => {
   return (
@@ -9,7 +9,7 @@ export const DonationScreen = () => {
         As doações ajudam a família FV a manter os trabalhos de ação social, 
         adquirir equipamentos e decorações para nossas celebrações.
       </Texto>
-      <Donate/>
+      <DonateCards/>
     </Container>
   );
 };

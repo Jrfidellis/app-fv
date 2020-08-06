@@ -24,7 +24,7 @@ export const Card = styled.TouchableOpacity`
     background: ${props => props.theme.colors.black};
     width: 100%;
     padding: 5px 5px 10px 20px;
-    elevation: 3px;
+    elevation: 3;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

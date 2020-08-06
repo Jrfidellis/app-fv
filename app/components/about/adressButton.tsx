@@ -1,12 +1,9 @@
 import React from 'react';
 import { Linking } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
 
-import { AdressButton } from './adressButton.styles';
+import { AdressButton } from './AdressButton.styles';
 
 export const AdressButtonCard = () => {
-    const { navigate } = useNavigation();
-    
     return (<AdressButton
         title='Nosso endereço' 
         color='#0F90FA'

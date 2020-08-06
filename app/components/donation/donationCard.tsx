@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+
 import { Linking } from 'react-native'
-import { DonationCard } from './donation.styles';
-import { OtherDonationCard } from './otherdonation.styles'
+import { DonationCard } from './Donation.styles';
+import { OtherDonationCard } from './OtherDonation.styles'
 
-export const DonateCard = () => {
-    const { navigate } = useNavigation();
-
+export const DonateCards = () => {
     return (<>
     <DonationCard
         title='Doar R$10,00' 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native'; 
 
-import { AdressButtonCard } from '../components/about/adressButton'
+import { AdressButtonCard } from '../components/about/AdressButton'
 
 export const AboutScreen = () => {
   return (

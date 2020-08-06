@@ -7,9 +7,12 @@ import SplashScreen from 'react-native-splash-screen';
 import { Routes } from './app/routes/routes';
 import { theme, Theme } from './app/assets/styles/theme';
 
+import { requestUserPermission } from './app/core/notificationsPermission';
+
 export const App = () => {
   useEffect(() => {
     SplashScreen.hide();
+    requestUserPermission();
   }, []);
 
   return (
