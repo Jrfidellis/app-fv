@@ -29,9 +29,9 @@ export const Card = styled.TouchableOpacity`
 `;
 
 export const Title = styled.Text`
-    margin-top: 5px;
+    margin-top: 4px;
     color: ${props => props.theme.colors.white};
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 `;
 

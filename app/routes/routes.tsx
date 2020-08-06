@@ -8,7 +8,7 @@ import { MenuScreen } from '../screens/menu';
 import { DonationScreen } from '../screens/donation';
 import { AboutScreen } from '../screens/about';
 
-import { tapBarOptions, stackOptions, headerOptions } from './routes.styles';
+import { tapBarOptions, stackOptions, headerName } from './routes.styles';
 
 const RootStack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -25,8 +25,8 @@ export function Routes() {
 }
 
 const nestedRoutes = [
-  <RootStack.Screen key="Donation" options={headerOptions} name="Donation" component={DonationScreen} />,
-  <RootStack.Screen key="About"  options={headerOptions} name="About" component={AboutScreen} />
+  <RootStack.Screen key="Donation" options={headerName('Doações')} name="Donation" component={DonationScreen} />,
+  <RootStack.Screen key="About" options={headerName('Sobre nós')} name="About" component={AboutScreen} />
 ];
 
 const MainRoute = () => (

@@ -12,11 +12,12 @@ export const tapBarOptions: MaterialTopTabBarOptions = {
 };
 
 export const stackOptions: StackNavigationOptions = {
-    headerBackTitleVisible: false
+    headerBackTitleVisible: false,
+    headerTitleAlign: 'center',
+    headerStyle: {backgroundColor: theme.colors.black},
+    headerTintColor: theme.colors.white,
 };
 
-export const headerOptions: StackNavigationOptions = {
-    headerTitleAlign:'center',
-    headerStyle: {backgroundColor: theme.colors.black},
-    headerTintColor: theme.colors.white
-};
+export const headerName = (withName: string): StackNavigationOptions => ({
+    headerTitle: withName
+});

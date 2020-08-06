@@ -33,12 +33,12 @@ export const Card = styled.TouchableOpacity`
 export const Title = styled.Text`
     margin-top: 5px;
     color: ${props => props.theme.colors.white};
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 `;
 
 export const Desc = styled.Text`
     color: ${props => props.theme.colors.white};
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
 `;

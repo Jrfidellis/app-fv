@@ -7,11 +7,11 @@ export const AboutScreen = () => {
   return (
     <Container>
       <Texto>
-        A Juventude Folêgo da Vida tem como objetivo manifestar o Reino 
+        {'\t'} A Juventude Folêgo da Vida tem como objetivo manifestar o Reino 
         dos céus na terra com nossas ações, seguindo o exemplo de Cristo.
       </Texto>
       <Texto>
-        Estamos situados na Igreja Assembléia de 
+        {'\t'} Estamos situados na Igreja Assembléia de 
         Deus do Vale do Rio dos Sinos (Distrito 4, Uirapuru).
       </Texto>
       <AdressButtonCard/>
@@ -27,4 +27,5 @@ const Container = styled.View`
 const Texto = styled.Text`
   color: #333;
   padding-bottom: 20px;
+  font-size: 16px;
 `;
