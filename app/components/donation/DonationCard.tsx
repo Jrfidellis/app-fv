@@ -4,6 +4,7 @@ import { Linking } from 'react-native'
 import { DonationCard } from './Donation.styles';
 import { OtherDonationCard } from './OtherDonation.styles'
 
+
 export const DonateCards = () => {
     return (<>
     <DonationCard
