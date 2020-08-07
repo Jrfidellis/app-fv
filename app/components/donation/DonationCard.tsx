@@ -4,6 +4,7 @@ import firestore from '@react-native-firebase/firestore';
 
 import { Card, Desc, Title } from './Donation.styles';
 import { OtherDonationCard } from './OtherDonation.styles'
+import { Value } from 'react-native-reanimated';
 
 export function DonateCards() {
     const [loading, setLoading] = useState(true);
@@ -12,8 +13,8 @@ export function DonateCards() {
     useEffect(() => {
       const donation = firestore()
         .collection('Donation')
+        .orderBy('Valor')
         .onSnapshot(querySnapshot => {
-          
           const donation = [];
           querySnapshot.forEach(documentSnapshot => {
             donation.push({
