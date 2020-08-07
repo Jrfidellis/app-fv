@@ -1,15 +1,56 @@
-import React from 'react';
-import { Autor } from '../autorPost/AutorPost';
+import React, { useState, useEffect } from 'react';
+//import { Autor } from '../autorPost/AutorJoao';
+import { View, ActivityIndicator, FlatList} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
+import { PostCard, Line, Title, Image, Wrapper, Autor, Name, Likes, Separator } from './Post.styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { PostCard, Line, Title, Image, Wrapper } from './Post.styles';
+export function Post() {
+    const [loading, setLoading] = useState(true); // Set loading to true on component mount
+    const [feed, setFeed] = useState([]); // Initial empty array of users
+  
+    useEffect(() => {
+      const subscriber = firestore()
+        .collection('Feed')
+        .onSnapshot(querySnapshot => {
+          
+          const feed = [];
+          querySnapshot.forEach(documentSnapshot => {
+            feed.push({
+              ...documentSnapshot.data(),
+              key: documentSnapshot.id,
+            });
+          });
+    
+          setFeed(feed);
+          setLoading(false);
+        });
+    
+      return () => subscriber();
+    }, []);
+  
+    if (loading) {
+      return <ActivityIndicator />;
+    }
 
-export const Post = () => <PostCard>
-    <Line/>
-    <Wrapper>
-        <Title>
-            A vida de Salomão, o rei de Israel
-        </Title>
-        <Autor nome="João Fidellis" url="a" likes={2}/>
-    </Wrapper>
-    <Image source=""/>
-</PostCard>
+  return( 
+    <FlatList
+      data={feed}
+      renderItem={({ item }) => (
+      <PostCard>
+        <Line/>
+        <Wrapper>
+          <Title>{item.Titulo}</Title>
+          <Autor>
+            <Image style={{height:12, width:12, borderRadius: 12/2, marginRight:2}} source={require('./jackcha.jpg')}/>
+            <Name>{item.Autor}</Name>
+            <Separator>·</Separator>
+            <Icon name='favorite' size={10} color='#333' />
+            <Likes>{item.Likes}</Likes>
+          </Autor>
+        </Wrapper>
+      </PostCard>
+      )}
+    />
+    );
+  }

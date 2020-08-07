@@ -7,18 +7,19 @@ import { Wrapper, Image, Text } from './AutorPost.styles';
 
 interface AutorProps {
     nome: string;
-    url: string;
+    /**url: string;
     likes?: number;
-    date?: string;
+    date?: string;**/
 }
 
 export const Autor: React.FC<AutorProps> = (props) => {
-    const { url, nome, likes, date } = props;
+    
+    const { nome, /**url, likes, date**/ } = props;
 
     return (<Wrapper>
-        {url && <Image source={url} />}
         {nome && <Text>{nome}</Text>}
+    {/**{url && <Image source={url} />}
         {likes && <Text> · {likes} ♥️</Text>}
-        {date && <Text> {date}</Text>}
+        {date && <Text> {date}</Text>}**/}
     </Wrapper>);
 }

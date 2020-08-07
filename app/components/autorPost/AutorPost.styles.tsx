@@ -17,3 +17,7 @@ export const Image = styled.ImageBackground`
 export const Text = styled.Text`
     font-size: 12px;
 `;
+
+export const Autor = styled.View`
+    flex-direction: row;
+`;

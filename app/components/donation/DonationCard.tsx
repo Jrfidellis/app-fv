@@ -1,41 +1,47 @@
-import React from 'react';
+import React,{ useState, useEffect }from 'react';
+import { Linking, FlatList, ActivityIndicator } from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 
-import { Linking } from 'react-native'
-import { DonationCard } from './Donation.styles';
+import { Card, Desc, Title } from './Donation.styles';
 import { OtherDonationCard } from './OtherDonation.styles'
 
+export function DonateCards() {
+    const [loading, setLoading] = useState(true);
+    const [donation, setDonation] = useState([]);
 
-export const DonateCards = () => {
-    return (<>
-    <DonationCard
-        title='Doar R$10,00' 
-        desc='“viuva sem nada..” 🥉'
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/2ctDWqi')}}
+    useEffect(() => {
+      const donation = firestore()
+        .collection('Donation')
+        .onSnapshot(querySnapshot => {
+          
+          const donation = [];
+          querySnapshot.forEach(documentSnapshot => {
+            donation.push({
+              ...documentSnapshot.data(),
+              key: documentSnapshot.id,
+            });
+          });
+    
+          setDonation(donation);
+          setLoading(false);
+        });
+    
+      return () => donation();
+    }, []);
+  
+    if (loading) {
+      return <ActivityIndicator />;
+    }
+
+  return(
+    <FlatList
+      data={donation}
+      renderItem={({ item }) => (
+        <Card onPress={() => {Linking.openURL(item.Link)}}>
+           <Title>Doar R${item.Valor}</Title>
+            <Desc>{item.Desc}</Desc>
+        </Card>
+      )}
     />
-    <DonationCard
-        title='Doar R$20,00' 
-        desc='Judas, é você? 🥈'
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/2y8W8u8')}}
-    />
-    <DonationCard
-        title='Doar R$80,00' 
-        desc='nem Salomão 🥇'
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/1xqRy62')}}
-    />
-    <OtherDonationCard
-        title='Outras Doações'
-        color='#0F90FA'
-        onPress={() => {Linking.openURL('https://api.whatsapp.com/send?phone=555191843272')}}
-    />
-    <DonationCard
-        title='Pagar um café' 
-        desc='apoiar o time de desenvolvedores '
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/2ktqebr')}}
-    />
-    </>
-    )
-}
+    );
+  }
