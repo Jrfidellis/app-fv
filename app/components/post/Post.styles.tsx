@@ -24,16 +24,11 @@ export const PostCard = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 20px;
 `;
 
 export const Title = styled.Text`
     margin-top: 5px;
     color: ${props => props.theme.colors.black};
-    font-size: 16px;
-`;
-
-export const Image = styled.ImageBackground`
-    height: 80px;
-    width: 80px;
-    border-radius: 3px;
+    font-size: 18px;
 `;

@@ -1,41 +1,40 @@
-import React from 'react';
+import React,{ useState, useEffect }from 'react';
+import { Linking, FlatList, ActivityIndicator } from 'react-native';
 
-import { Linking } from 'react-native'
-import { DonationCard } from './Donation.styles';
-import { OtherDonationCard } from './OtherDonation.styles'
+import { Card, Desc, Title } from './Donation.styles';
+import { DoacaoService } from 'app/services/DoacaoService';
 
+const doacaoService = new DoacaoService();
 
-export const DonateCards = () => {
-    return (<>
-    <DonationCard
-        title='Doar R$10,00' 
-        desc='“viuva sem nada..” 🥉'
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/2ctDWqi')}}
-    />
-    <DonationCard
-        title='Doar R$20,00' 
-        desc='Judas, é você? 🥈'
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/2y8W8u8')}}
-    />
-    <DonationCard
-        title='Doar R$80,00' 
-        desc='nem Salomão 🥇'
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/1xqRy62')}}
-    />
-    <OtherDonationCard
-        title='Outras Doações'
-        color='#0F90FA'
-        onPress={() => {Linking.openURL('https://api.whatsapp.com/send?phone=555191843272')}}
-    />
-    <DonationCard
-        title='Pagar um café' 
-        desc='apoiar o time de desenvolvedores '
-        color='#0BD55C'
-        onPress={() => {Linking.openURL('http://mpago.la/2ktqebr')}}
-    />
-    </>
-    )
-}
+export function DonateCards() {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [doacoes, setDoacoes] = useState<IDonation[]>([]);
+
+    useEffect(() => {
+      doacaoService.getTiposDoacao()
+        .then(doacoes => setDoacoes(doacoes))
+        .catch(() => setError(true))
+        .finally(() => setLoading(false))
+    }, []);
+  
+    if (loading) {
+      return <ActivityIndicator />;
+    }
+
+    if (error) {
+      return <Title>Deu pau</Title>;
+    }
+
+    return(
+        <FlatList
+        data={doacoes}
+        renderItem={({ item }) => (
+            <Card onPress={() => {Linking.openURL(item.link)}}>
+                <Title>Doar R${item.valor}</Title>
+                <Desc>{item.descricao}</Desc>
+            </Card>
+        )}
+        />
+    );
+  }

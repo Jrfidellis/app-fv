@@ -1,24 +1,23 @@
 import React from 'react';
 
-import { Wrapper, Image, Text } from './AutorPost.styles';
+import { Wrapper, Texto, Separator } from './AutorPost.styles';
 
 // recebe nome, foto, likes e data
 // exibe campos conforme props
 
 interface AutorProps {
     nome: string;
-    url: string;
     likes?: number;
     date?: string;
 }
 
-export const Autor: React.FC<AutorProps> = (props) => {
-    const { url, nome, likes, date } = props;
+export const AutorPost: React.FC<AutorProps> = (props) => {
+    const { nome, likes, date } = props;
 
     return (<Wrapper>
-        {url && <Image source={url} />}
-        {nome && <Text>{nome}</Text>}
-        {likes && <Text> · {likes} ♥️</Text>}
-        {date && <Text> {date}</Text>}
+        <Texto>{nome}</Texto>
+        <Separator/>
+        {likes && <Texto> {likes} ♥️</Texto>}
+        {date && <Texto> {date} </Texto>}
     </Wrapper>);
 }
