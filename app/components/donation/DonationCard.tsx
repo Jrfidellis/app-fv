@@ -1,48 +1,40 @@
 import React,{ useState, useEffect }from 'react';
 import { Linking, FlatList, ActivityIndicator } from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 
 import { Card, Desc, Title } from './Donation.styles';
-import { OtherDonationCard } from './OtherDonation.styles'
-import { Value } from 'react-native-reanimated';
+import { DoacaoService } from 'app/services/DoacaoService';
+
+const doacaoService = new DoacaoService();
 
 export function DonateCards() {
     const [loading, setLoading] = useState(true);
-    const [donation, setDonation] = useState([]);
+    const [error, setError] = useState(false);
+    const [doacoes, setDoacoes] = useState<IDonation[]>([]);
 
     useEffect(() => {
-      const donation = firestore()
-        .collection('Donation')
-        .orderBy('Valor')
-        .onSnapshot(querySnapshot => {
-          const donation = [];
-          querySnapshot.forEach(documentSnapshot => {
-            donation.push({
-              ...documentSnapshot.data(),
-              key: documentSnapshot.id,
-            });
-          });
-    
-          setDonation(donation);
-          setLoading(false);
-        });
-    
-      return () => donation();
+      doacaoService.getTiposDoacao()
+        .then(doacoes => setDoacoes(doacoes))
+        .catch(() => setError(true))
+        .finally(() => setLoading(false))
     }, []);
   
     if (loading) {
       return <ActivityIndicator />;
     }
 
-  return(
-    <FlatList
-      data={donation}
-      renderItem={({ item }) => (
-        <Card onPress={() => {Linking.openURL(item.Link)}}>
-           <Title>Doar R${item.Valor}</Title>
-            <Desc>{item.Desc}</Desc>
-        </Card>
-      )}
-    />
+    if (error) {
+      return <Title>Deu pau</Title>;
+    }
+
+    return(
+        <FlatList
+        data={doacoes}
+        renderItem={({ item }) => (
+            <Card onPress={() => {Linking.openURL(item.link)}}>
+                <Title>Doar R${item.valor}</Title>
+                <Desc>{item.descricao}</Desc>
+            </Card>
+        )}
+        />
     );
   }

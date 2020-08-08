@@ -1,53 +1,49 @@
 import React, { useState, useEffect } from 'react';
-//import { Autor } from '../autorPost/AutorJoao';
-import { View, ActivityIndicator, FlatList} from 'react-native';
-import firestore from '@react-native-firebase/firestore';
-import { PostCard, Line, Title, Image, Wrapper, Autor, Name, Likes, Separator } from './Post.styles';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { ActivityIndicator, FlatList} from 'react-native';
+
+import { PostCard, Line, Title, Wrapper } from './Post.styles';
+
+import { FeedService } from 'app/services/FeedService';
+import { AutorPost } from '../autorPost/AutorPost';
+
+const feedService = new FeedService();
 
 export function Post() {
-    const [loading, setLoading] = useState(true); // Set loading to true on component mount
-    const [feed, setFeed] = useState([]); // Initial empty array of users
-  
-    useEffect(() => {
-      const subscriber = firestore()
-        .collection('Feed')
-        .onSnapshot(querySnapshot => {
-          
-          const feed = [];
-          querySnapshot.forEach(documentSnapshot => {
-            feed.push({
-              ...documentSnapshot.data(),
-              key: documentSnapshot.id,
-            });
-          });
-    
-          setFeed(feed);
-          setLoading(false);
-        });
-    
-      return () => subscriber();
-    }, []);
-  
-    if (loading) {
-      return <ActivityIndicator />;
-    }
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [feed, setFeed] = useState<IFeed[]>([]);
+  const [pagina, setPagina] = useState(1);
+
+  const getFeedItens = (page: number) => {
+    feedService
+      .getFeed(page, 10)
+      .then(novosItens => setFeed([...feed, ...novosItens]))
+      .catch(() => setError(true))
+      .finally(() => setLoading(false))
+  }
+
+  useEffect(() => {
+    getFeedItens(pagina)
+  }, [pagina]);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  if (error) {
+    return <Title>Deu pau</Title>;
+  }
 
   return( 
     <FlatList
       data={feed}
+      onScrollEndDrag={() => setPagina(pagina + 1)}
       renderItem={({ item }) => (
       <PostCard>
         <Line/>
         <Wrapper>
-          <Title>{item.Titulo}</Title>
-          <Autor>
-            <Image style={{height:12, width:12, borderRadius: 12/2, marginRight:2}} source={require('./jackcha.jpg')}/>
-            <Name>{item.Autor}</Name>
-            <Separator>·</Separator>
-            <Icon name='favorite' size={10} color='#333' />
-            <Likes>{item.Likes}</Likes>
-          </Autor>
+          <Title>{item.titulo}</Title>
+          <AutorPost nome="teste" likes={244} date={Date()} />
         </Wrapper>
       </PostCard>
       )}

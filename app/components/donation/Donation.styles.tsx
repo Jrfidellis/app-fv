@@ -1,20 +1,4 @@
-import React from 'react'
 import styled from 'styled-components/native';
-
-import { TouchableOpacityProps } from 'react-native';
-
-/**interface DonationCardProps extends TouchableOpacityProps {
-    color: string;
-    title: string;
-    desc: string;
-}
-
-export const DonationCard: React.FC<DonationCardProps> = (props) => {
-    return (<Card onPress={props.onPress} style={{ backgroundColor: props.color }}>
-        <Title>{props.title}</Title>
-        <Desc>{props.desc}</Desc>
-    </Card>)
-}**/
 
 export const Card = styled.TouchableOpacity`
     height: 70px;
@@ -32,13 +16,13 @@ export const Card = styled.TouchableOpacity`
 
 export const Title = styled.Text`
     margin-top: 5px;
-    color: #fff;
+    color: ${props => props.theme.colors.white};
     font-size: 18px;
     font-weight: bold;
 `;
 
 export const Desc = styled.Text`
-    color: #fff;
+    color: ${props => props.theme.colors.white};
     font-size: 16px;
     font-weight: normal;
 `;

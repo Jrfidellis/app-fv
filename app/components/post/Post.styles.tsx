@@ -32,27 +32,3 @@ export const Title = styled.Text`
     color: ${props => props.theme.colors.black};
     font-size: 18px;
 `;
-
-export const Image = styled.ImageBackground`
-    height: 80px;
-    width: 80px;
-    border-radius: 3px;
-`;
-
-export const Autor = styled.View`
-    flex-direction: row;
-`;
-
-export const Name = styled.Text`
-    font-size: 10;
-`;
-
-export const Likes = styled.Text`
-    font-size: 10;
-`;
-
-export const Separator = styled.Text`
-    font-size: 10;
-    padding-left: 5;
-    padding-right: 5;
-`;
