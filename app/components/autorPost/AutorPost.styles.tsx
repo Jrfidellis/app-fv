@@ -11,11 +11,11 @@ export const Autor = styled.View`
 `;
 
 export const Texto = styled.Text`
-    font-size: 14;
+    font-size: 14px;
 `;
 
 export const Separator = styled.Text`
-    font-size: 14;
-    padding-left: 5;
-    padding-right: 5;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
 `;

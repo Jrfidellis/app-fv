@@ -4,13 +4,12 @@ import styled from 'styled-components/native';
 import { TouchableOpacityProps } from 'react-native';
 
 interface MenuCardProps extends TouchableOpacityProps {
-    color: string;
     title: string;
     desc: string;
 }
 
 export const MenuCard: React.FC<MenuCardProps> = (props) => {
-    return (<Card onPress={props.onPress} style={{ backgroundColor: props.color }}>
+    return (<Card onPress={props.onPress}>
         <Title>{props.title}</Title>
         <Desc>{props.desc}</Desc>
     </Card>)
@@ -33,7 +32,7 @@ export const Card = styled.TouchableOpacity`
 
 export const Title = styled.Text`
     margin-top: 5px;
-    color: ${props => props.theme.colors.white};
+    color: ${props => props.theme.colors.theme};
     font-size: 16px;
     font-weight: bold;
 `;

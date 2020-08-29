@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, FlatList} from 'react-native';
+import { IFeed } from '../../services/api';
 
 import { PostCard, Line, Title, Wrapper } from './Post.styles';
 
-import { FeedService } from 'app/services/FeedService';
+import { FeedService } from '../../services/FeedService';
 import { AutorPost } from '../autorPost/AutorPost';
 
 const feedService = new FeedService();
@@ -34,19 +35,20 @@ export function Post() {
     return <Title>Deu pau</Title>;
   }
 
-  return( 
+  return (
     <FlatList
       data={feed}
+      keyExtractor={item => item.data.toString()}
       onScrollEndDrag={() => setPagina(pagina + 1)}
-      renderItem={({ item }) => (
+      renderItem={({ item }) => { return(
       <PostCard>
         <Line/>
         <Wrapper>
           <Title>{item.titulo}</Title>
-          <AutorPost nome="teste" likes={244} date={Date()} />
+          <AutorPost nome={item.autor} likes={item.likes} date={item.data.toDate()} />
         </Wrapper>
       </PostCard>
-      )}
+      )}}
     />
     );
   }

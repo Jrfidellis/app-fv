@@ -1,4 +1,5 @@
 import firestore from '@react-native-firebase/firestore';
+import { IFeed } from './api';
 
 export class FeedService {
 
@@ -9,13 +10,26 @@ export class FeedService {
     const feed: IFeed[] = [];
 
     const value = await this.collection
+      .orderBy('data')
       .startAt(primeiroItem)
       .limit(quantidadePorPagina)
       .get()
 
-    value.forEach(snap => {
-      feed.push(snap.data() as IFeed);
-    });
+    const promises = value.docs.map(doc => {
+      const data = doc.data()
+      const autor: Promise<{ data(): { nome: string }}> = data.autor.get()
+
+      return autor
+      .then(s => s.data())
+      .then(({ nome }) => {
+        feed.push({
+          ...data,
+          autor: nome
+        } as IFeed);
+      });
+    })
+
+    await Promise.all(promises);
 
     return feed;
   }

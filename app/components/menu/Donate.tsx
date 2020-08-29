@@ -9,7 +9,6 @@ export const DonateCard = () => {
     return (<MenuCard
         title='Doar para o Fôlego da Vida' 
         desc='Doe para suportar os trabalhos do Fôlego de Vida!'
-        color='#0BD55C'
         onPress={() => navigate('Donation')}
     />)
 }

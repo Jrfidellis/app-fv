@@ -1,4 +1,6 @@
 import React from 'react';
+import { dateFormat } from '../../core/date';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Wrapper, Texto, Separator } from './AutorPost.styles';
 
@@ -8,7 +10,7 @@ import { Wrapper, Texto, Separator } from './AutorPost.styles';
 interface AutorProps {
     nome: string;
     likes?: number;
-    date?: string;
+    date?: Date;
 }
 
 export const AutorPost: React.FC<AutorProps> = (props) => {
@@ -17,7 +19,9 @@ export const AutorPost: React.FC<AutorProps> = (props) => {
     return (<Wrapper>
         <Texto>{nome}</Texto>
         <Separator/>
-        {likes && <Texto> {likes} ♥️</Texto>}
-        {date && <Texto> {date} </Texto>}
+        {likes && <Texto> {likes} </Texto>}
+        {likes && <Icon name="favorite" size={15} color="#333"/>}
+        {likes && <Separator/>}
+        {date && <Texto> {dateFormat(date)} </Texto>}
     </Wrapper>);
 }

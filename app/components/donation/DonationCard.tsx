@@ -2,7 +2,7 @@ import React,{ useState, useEffect }from 'react';
 import { Linking, FlatList, ActivityIndicator } from 'react-native';
 
 import { Card, Desc, Title } from './Donation.styles';
-import { DoacaoService } from 'app/services/DoacaoService';
+import { DoacaoService } from '../../services/DoacaoService';
 
 const doacaoService = new DoacaoService();
 
@@ -29,6 +29,7 @@ export function DonateCards() {
     return(
         <FlatList
         data={doacoes}
+        keyExtractor={item => item.link}
         renderItem={({ item }) => (
             <Card onPress={() => {Linking.openURL(item.link)}}>
                 <Title>Doar R${item.valor}</Title>
