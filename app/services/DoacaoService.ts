@@ -1,4 +1,5 @@
 import firestore from '@react-native-firebase/firestore';
+import { IDonation } from './api';
 
 export class DoacaoService {
 

@@ -1,6 +1,7 @@
 import { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
 
 export interface IFeed {
+    id: string;
     autor: string;
     data: FirebaseFirestoreTypes.Timestamp;
     likes: number;

@@ -14,7 +14,7 @@ export const Wrapper = styled.View`
     justify-content: space-between;
 `
 
-export const PostCard = styled.View`
+export const PostCard = styled.TouchableOpacity`
     height: 90px;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);

@@ -24,6 +24,7 @@ export class FeedService {
       .then(({ nome }) => {
         feed.push({
           ...data,
+          id: doc.id,
           autor: nome
         } as IFeed);
       });

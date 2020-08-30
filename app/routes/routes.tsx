@@ -26,7 +26,8 @@ export function Routes() {
 
 const nestedRoutes = [
   <RootStack.Screen key="Donation" options={headerName('Doações')} name="Donation" component={DonationScreen} />,
-  <RootStack.Screen key="About" options={headerName('Sobre nós')} name="About" component={AboutScreen} />
+  <RootStack.Screen key="About" options={headerName('Sobre nós')} name="About" component={AboutScreen} />,
+  <RootStack.Screen key="Post" options={headerName('Postagem')} name="Post" component={} />
 ];
 
 const MainRoute = () => (

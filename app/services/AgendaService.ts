@@ -1,4 +1,5 @@
 import firestore from '@react-native-firebase/firestore';
+import { IEvento } from './api';
 
 export class AgendaService {
 

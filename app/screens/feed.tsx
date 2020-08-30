@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import { Post } from '../components/post/Post';
+import { Feed } from '../components/feed/Feed';
 
 export const FeedScreen = () => {
   return (
     <Container>
-      <Post/>
+      <Feed/>
     </Container>
   );
 };
