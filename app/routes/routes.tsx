@@ -1,12 +1,13 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { createStackNavigator, HeaderBackground } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { FeedScreen } from '../screens/feed';
 import { AgendaScreen } from '../screens/agenda';
 import { MenuScreen } from '../screens/menu';
 import { DonationScreen } from '../screens/donation';
 import { AboutScreen } from '../screens/about';
+import { PostScreen } from '../screens/post';
 
 import { tapBarOptions, stackOptions, headerName } from './routes.styles';
 
@@ -27,7 +28,7 @@ export function Routes() {
 const nestedRoutes = [
   <RootStack.Screen key="Donation" options={headerName('Doações')} name="Donation" component={DonationScreen} />,
   <RootStack.Screen key="About" options={headerName('Sobre nós')} name="About" component={AboutScreen} />,
-  <RootStack.Screen key="Post" options={headerName('Postagem')} name="Post" component={} />
+  <RootStack.Screen key="Post" options={headerName('Postagem')} name="Post" component={PostScreen} />
 ];
 
 const MainRoute = () => (

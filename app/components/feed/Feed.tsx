@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, FlatList} from 'react-native';
+import { FlatList} from 'react-native';
 import { IFeed } from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
 
-import { PostCard, Line, Title, Wrapper } from './Feed.styles';
+import { PostCard, Line, Title, Wrapper, LoaderContainer } from './Feed.styles';
 
 import { FeedService } from '../../services/FeedService';
-import { AutorPost } from '../autorPost/AutorPost';
+import { AutorPost } from './autorPost/AutorPost';
+import { Loader } from '../Loader';
 
 const feedService = new FeedService();
 
@@ -26,11 +27,13 @@ export function Feed() {
   }
 
   useEffect(() => {
-    getFeedItens(pagina)
+    getFeedItens(pagina);
   }, [pagina]);
 
   if (loading) {
-    return <ActivityIndicator />;
+    return <LoaderContainer>
+      <Loader/>
+    </LoaderContainer>;
   }
 
   if (error) {
@@ -42,17 +45,17 @@ export function Feed() {
       data={feed}
       keyExtractor={item => item.id}
       onScrollEndDrag={() => setPagina(pagina + 1)}
-      renderItem={({ item }) => { return(
+      renderItem={({ item: feed }) => (
       <PostCard
-        onPress={() => navigate('')}
+        onPress={() => navigate('Post', { feed })}
       >
         <Line/>
         <Wrapper>
-          <Title>{item.titulo}</Title>
-          <AutorPost nome={item.autor} likes={item.likes} date={item.data.toDate()} />
+          <Title>{feed.titulo}</Title>
+          <AutorPost feed={feed} />
         </Wrapper>
       </PostCard>
-      )}}
+      )}
     />
     );
   }
