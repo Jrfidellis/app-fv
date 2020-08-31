@@ -2,10 +2,10 @@ import { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
 
 export interface IFeed {
     id: string;
-    autor: string;
+    autor: IUsuario;
     data: FirebaseFirestoreTypes.Timestamp;
     likes: number;
-    texto: string;
+    postPath: string;
     titulo: string;
 }
 
@@ -15,6 +15,7 @@ export interface IPost {
 
 export interface IUsuario {
     nome: string;
+    foto: string;
 }
 
 export interface IEvento {
