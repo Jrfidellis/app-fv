@@ -12,7 +12,7 @@ export const Autor = styled.View`
 `;
 
 export const Texto = styled.Text`
-    font-size: 14px;
+    font-size: 13px;
 `;
 
 export const ImagemAutor = styled(Image)`

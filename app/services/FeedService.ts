@@ -1,4 +1,4 @@
-import firestore, { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
 import { IFeed, IPost, IUsuario } from './api';
 
 export class FeedService {
@@ -29,9 +29,10 @@ export class FeedService {
           data: feed.data,
           likes: feed.likes,
           postPath: feed.texto.path,
-          titulo: feed.titulo
+          titulo: feed.titulo,
+          thumbnail: feed.thumbnail
         });
-      }).catch(e => console.log(e));
+      });
     })
 
     await Promise.all(promises);
