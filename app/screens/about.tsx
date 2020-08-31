@@ -25,7 +25,7 @@ const Container = styled.View`
 `;
 
 const Texto = styled.Text`
-  color: #333;
+  color: ${props => props.theme.colors.black};
   padding-bottom: 20px;
   font-size: 16px;
 `;

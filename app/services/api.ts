@@ -7,6 +7,7 @@ export interface IFeed {
     likes: number;
     postPath: string;
     titulo: string;
+    thumbnail: string;
 }
 
 export interface IPost {
@@ -19,7 +20,7 @@ export interface IUsuario {
 }
 
 export interface IEvento {
-    data: Date;
+    data: FirebaseFirestoreTypes.Timestamp;
     texto: string;
 }
 

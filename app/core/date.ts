@@ -8,10 +8,10 @@ function addZero(n: number) {
 }
 
 export function dateFormat(date: Date): string {
-    const dia = date.getDate()
-    const mes = date.getMonth() + 1
-    const ano = date.getFullYear()
+    const dia = date.getDate();
+    const mes = date.getMonth() + 1;
+    const ano = date.getFullYear().toString().substring(2, 4);
 
 
-    return `${addZero(dia)}/${addZero(mes)}/${ano}`
+    return `${addZero(dia)}/${addZero(mes)}/${ano}`;
 }

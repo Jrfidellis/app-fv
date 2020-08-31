@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList} from 'react-native';
+import { FlatList, View} from 'react-native';
 import { IFeed } from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
 
-import { PostCard, Line, Title, Wrapper, LoaderContainer } from './Feed.styles';
+import { PostCard, Line, Title, Wrapper, LoaderContainer, Thumbnail } from './Feed.styles';
 
 import { FeedService } from '../../services/FeedService';
 import { AutorPost } from './autorPost/AutorPost';
 import { Loader } from '../Loader';
+import { ErrorTryAgain } from '../Error';
 
 const feedService = new FeedService();
 
@@ -21,9 +22,12 @@ export function Feed() {
   const getFeedItens = (page: number) => {
     feedService
       .getFeed(page, 10)
-      .then(novosItens => setFeed([...feed, ...novosItens]))
+      .then(novosItens => { 
+        setFeed([...feed, ...novosItens]);
+        setError(false);
+      })
       .catch(() => setError(true))
-      .finally(() => setLoading(false))
+      .finally(() => setLoading(false));
   }
 
   useEffect(() => {
@@ -37,7 +41,12 @@ export function Feed() {
   }
 
   if (error) {
-    return <Title>Deu pau</Title>;
+    return <LoaderContainer>
+      <ErrorTryAgain callback={() => {
+        setLoading(true);
+        getFeedItens(pagina);
+      }}/>
+    </LoaderContainer>;
   }
 
   return (
@@ -54,6 +63,9 @@ export function Feed() {
           <Title>{feed.titulo}</Title>
           <AutorPost feed={feed} />
         </Wrapper>
+        <View>
+          <Thumbnail source={{ uri: feed.thumbnail }} />
+        </View>
       </PostCard>
       )}
     />

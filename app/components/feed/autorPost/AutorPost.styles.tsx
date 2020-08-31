@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Image } from 'react-native';
 
 export const Wrapper = styled.View`
     display: flex;
@@ -12,10 +11,10 @@ export const Autor = styled.View`
 `;
 
 export const Texto = styled.Text`
-    font-size: 14px;
+    font-size: 13px;
 `;
 
-export const ImagemAutor = styled(Image)`
+export const ImagemAutor = styled.Image`
     border-radius: 100px;
     width: 18px;
     height: 18px;

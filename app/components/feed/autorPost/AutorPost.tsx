@@ -24,7 +24,7 @@ export const AutorPost: React.FC<AutorProps> = (props) => {
         showImage
     } = props;
 
-    const color = white ? theme.colors.white : theme.colors.black;
+    const color = white ? theme.colors.white : theme.colors.gray;
     const textStyle = { color };
 
     return (<Wrapper>
@@ -33,7 +33,7 @@ export const AutorPost: React.FC<AutorProps> = (props) => {
         <DotSeparator color={color}/>
         {feed.likes && <>
             <Texto style={textStyle}>{feed.likes} </Texto>
-            <Icon name="favorite" size={15} color={color}/>
+            <Icon name="favorite" size={12} color={color}/>
             <DotSeparator color={color}/>
         </>}
         {feed.data && <Texto style={textStyle}>{dateFormat(feed.data.toDate())}</Texto>}
