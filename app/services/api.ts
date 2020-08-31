@@ -20,7 +20,7 @@ export interface IUsuario {
 }
 
 export interface IEvento {
-    data: Date;
+    data: FirebaseFirestoreTypes.Timestamp;
     texto: string;
 }
 

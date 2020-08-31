@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Image } from 'react-native';
 
 export const Line = styled.View`
     position: absolute;
@@ -8,12 +7,12 @@ export const Line = styled.View`
     height: 90px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-`
+`;
 
 export const Wrapper = styled.View`
     justify-content: space-between;
     flex: 2;
-`
+`;
 
 export const LoaderContainer = styled.View`
     flex: 1;
@@ -40,7 +39,7 @@ export const Title = styled.Text`
     font-size: 18px;
 `;
 
-export const Thumbnail = styled(Image)`
+export const Thumbnail = styled.Image`
     flex: 1;
     border-radius: 3px;
     aspect-ratio: 1;
