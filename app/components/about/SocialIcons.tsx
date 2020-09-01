@@ -2,14 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { Linking } from 'react-native';
 
-const SocialIcon = {Instagram: require('../../assets/social/Ig.png'),
-                    Facebook: require('../../assets/social/Fb.png'),
-                    Whatsapp: require('../../assets/social/Wa.png'),}
-
-const SocialUrl = { Instagram: 'https://www.instagram.com/juventudefolegodavida/',
-                    Facebook: 'https://www.facebook.com/juventudefolegodavida/',
-                    Whatsapp: 'https://api.whatsapp.com/send?1=pt_br&phone=+555193387382',
+const SocialIcon = {
+  Instagram: require('../../assets/social/Ig.png'),
+  Facebook: require('../../assets/social/Fb.png'),
+  Whatsapp: require('../../assets/social/Wa.png'),
 }
+
+const SocialUrl = { 
+  Instagram: 'https://www.instagram.com/juventudefolegodavida/',
+  Facebook: 'https://www.facebook.com/juventudefolegodavida/',
+  Whatsapp: 'https://api.whatsapp.com/send?1=pt_br&phone=+555193387382',
+}
+
 export const SocialIcons = () => {
 
     return (
