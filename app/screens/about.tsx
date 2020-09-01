@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native'; 
-
-import { AdressButtonCard } from '../components/about/AdressButton'
+import { SocialIcons } from '../components/about/SocialIcons';
+import { AdressButtonCard } from '../components/about/AdressButton';
 
 export const AboutScreen = () => {
   return (
@@ -15,6 +15,7 @@ export const AboutScreen = () => {
         Deus do Vale do Rio dos Sinos (Distrito 4, Uirapuru).
       </Texto>
       <AdressButtonCard/>
+      <SocialIcons/>
     </Container>
   );
 };
@@ -29,3 +30,4 @@ const Texto = styled.Text`
   padding-bottom: 20px;
   font-size: 16px;
 `;
+
