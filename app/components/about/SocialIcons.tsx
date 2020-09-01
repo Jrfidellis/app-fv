@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linking } from 'react-native'
+import { Linking } from 'react-native';
+
 const SocialIcon = {Instagram: require('../../assets/social/Ig.png'),
                     Facebook: require('../../assets/social/Fb.png'),
                     Whatsapp: require('../../assets/social/Wa.png'),}
