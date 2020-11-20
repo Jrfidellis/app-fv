@@ -3,11 +3,11 @@ import { FlatList, View} from 'react-native';
 import { IFeed } from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
 
-import { PostCard, Line, Title, Wrapper, LoaderContainer, Thumbnail } from './Feed.styles';
+import { PostCard, Line, Title, Wrapper, Thumbnail } from './Feed.styles';
 
 import { FeedService } from '../../services/FeedService';
 import { AutorPost } from './autorPost/AutorPost';
-import { Loader } from '../Loader';
+import { Loader, LoaderContainer } from '../Loader';
 import { ErrorTryAgain } from '../Error';
 
 const feedService = new FeedService();

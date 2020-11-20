@@ -26,9 +26,3 @@ export const Desc = styled.Text`
     font-size: 16px;
     font-weight: normal;
 `;
-
-export const LoaderContainer = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-`;

@@ -9,7 +9,7 @@ export class AgendaService {
     const eventos: IEvento[] = [];
 
     const value = await this.collection
-      .where('data', '>', Date())
+      .where('data', '>', new Date())
       .get()
 
     value.forEach(snap => {
@@ -17,6 +17,29 @@ export class AgendaService {
     });
 
     return eventos;
+  }
+
+  async getEventosGroupByDay() {
+    const grouped: { [key: string]: IEvento[] } = {};
+
+    const eventos = await this.getEventos();
+
+    const getKey = (e: IEvento) => {
+      const date = e.data.toDate();
+      return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
+    }
+
+    eventos
+      .map(evento => ({ key: getKey(evento), evento }))
+      .forEach(e => {
+        if (!grouped[e.key]) {
+          grouped[e.key] = [];
+        } 
+        
+        grouped[e.key].push(e.evento);
+      })
+
+    return Object.entries(grouped);
   }
 
 }

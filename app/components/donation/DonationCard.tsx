@@ -1,10 +1,10 @@
 import React,{ useState, useEffect }from 'react';
 import { Linking, FlatList } from 'react-native';
 
-import { Card, Desc, Title, LoaderContainer } from './Donation.styles';
+import { Card, Desc, Title } from './Donation.styles';
 import { DoacaoService } from '../../services/DoacaoService';
 import { IDonation } from '../../services/api';
-import { Loader } from '../Loader';
+import { Loader, LoaderContainer } from '../Loader';
 import { ErrorTryAgain } from '../Error';
 
 const doacaoService = new DoacaoService();

@@ -14,12 +14,6 @@ export const Wrapper = styled.View`
     flex: 2;
 `;
 
-export const LoaderContainer = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-`;
-
 export const PostCard = styled.TouchableOpacity`
     height: 90px;
     border-radius: 8px;
