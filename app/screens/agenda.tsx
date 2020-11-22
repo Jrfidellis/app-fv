@@ -7,7 +7,7 @@ import { Text, View } from 'react-native';
 import { AgendaService } from '../services/AgendaService';
 import { Loader, LoaderContainer } from '../components/Loader';
 import { ErrorTryAgain } from '../components/Error';
-
+import { Alt, Altrev, Container, Dia, Evento, Linha } from '../components/diaAgenda/DiaAgenda.styles'
 const agendaService = new AgendaService();
 
 export const AgendaScreen = () => {
@@ -47,16 +47,13 @@ export const AgendaScreen = () => {
 
   return (
     <Container>
-      <Text>Agenda</Text>
       {diasDeEvento.map(([dia, eventos]) => <>
-        <Text>{dia}</Text>
-        {eventos.map(e => <Text>{e.texto}</Text>)}
+        <Dia>{dia}</Dia>
+        <Alt>
+          <Linha/><Altrev>{eventos.map(e => <Evento>{e.texto}</Evento>)}</Altrev>
+        </Alt>
       </>)}
     </Container>
   );
 };
 
-const Container = styled.View`
-  flex: 1;
-  padding: 20px 10px;
-`;
