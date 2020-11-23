@@ -7,7 +7,7 @@ import { Text, View } from 'react-native';
 import { AgendaService } from '../services/AgendaService';
 import { Loader, LoaderContainer } from '../components/Loader';
 import { ErrorTryAgain } from '../components/Error';
-import { Alt, Altrev, Container, Dia, Evento, Linha } from '../components/diaAgenda/DiaAgenda.styles'
+import { Alt, Altrev, Container, Dia, Evento, Linha } from '../components/diaAgenda/Agenda.styles'
 const agendaService = new AgendaService();
 
 export const AgendaScreen = () => {
