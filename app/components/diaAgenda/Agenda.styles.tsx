@@ -14,19 +14,12 @@ export const Evento = styled.Text`
     margin-left: 5px;
 `;
 
-export const Alt = styled.View`
-    flex-direction: row;
+export const Eventos = styled.View`
+    flex-direction: column;
     margin-top: 3px;
     margin-bottom: 10px;
-`;
-
-export const Altrev = styled.View`
-    flex-direction: column;
-`;
-
-export const Linha = styled.View`
-    border: 2px dashed #0F90FA;
-    width: 1px;
+    border-left-width: 2px;
+    border-left-color: #0F90FA;
 `;
 
 export const Container = styled.View`

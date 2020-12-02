@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import styled from 'styled-components/native'; 
 import { IEvento } from 'app/services/api';
 
-import { Text, View } from 'react-native';
 import { AgendaService } from '../services/AgendaService';
 import { Loader, LoaderContainer } from '../components/Loader';
 import { ErrorTryAgain } from '../components/Error';
-import { Alt, Altrev, Container, Dia, Evento, Linha } from '../components/diaAgenda/Agenda.styles'
+import { Eventos, Container, Dia, Evento } from '../components/diaAgenda/Agenda.styles'
+
 const agendaService = new AgendaService();
 
 export const AgendaScreen = () => {
@@ -48,9 +47,9 @@ export const AgendaScreen = () => {
     <Container>
       {diasDeEvento.map(([dia, eventos]) => <>
         <Dia>{dia}</Dia>
-        <Alt>
-          <Linha/><Altrev>{eventos.map(e => <Evento>{e.texto}</Evento>)}</Altrev>
-        </Alt>
+        <Eventos>
+          {eventos.map(e => <Evento>{e.texto}</Evento>)}
+        </Eventos>
       </>)}
     </Container>
   );
