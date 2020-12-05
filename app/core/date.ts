@@ -15,3 +15,10 @@ export function dateFormat(date: Date): string {
 
     return `${addZero(dia)}/${addZero(mes)}/${ano}`;
 }
+
+export function timeFormat(date: Date): string {
+    const hora = date.getHours();
+    const minuto = date.getMinutes();
+
+    return `${addZero(hora)}:${addZero(minuto)}h`;
+}
