@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components/native';
 
 import { IEvento } from 'app/services/api';
 
 import { AgendaService } from '../services/AgendaService';
 import { Loader, LoaderContainer } from '../components/Loader';
 import { ErrorTryAgain } from '../components/Error';
-import { Eventos, Container, Dia, Evento } from '../components/diaAgenda/Agenda.styles'
+import { DiaAgenda } from '../components/diaAgenda/DiaAgenda';
 
 const agendaService = new AgendaService();
 
@@ -43,15 +44,26 @@ export const AgendaScreen = () => {
     </LoaderContainer>;
   }
 
+  if (diasDeEvento.length === 0) {
+    return <LoaderContainer>
+      <Texto>Nenhum evento na nossa agenda!</Texto>
+    </LoaderContainer>;
+  }
+
   return (
     <Container>
-      {diasDeEvento.map(([dia, eventos]) => <>
-        <Dia>{dia}</Dia>
-        <Eventos>
-          {eventos.map(e => <Evento>{e.texto}</Evento>)}
-        </Eventos>
-      </>)}
+      {diasDeEvento.map(([dia, eventos]) => <DiaAgenda key={dia} dia={dia} eventos={eventos}>
+      </DiaAgenda>)}
     </Container>
   );
 };
 
+const Container = styled.View`
+  flex: 1;
+  padding: 20px 30px;
+`;
+
+const Texto = styled.Text`
+  color: ${s => s.theme.colors.theme};
+  font-size: 16px;
+`;
