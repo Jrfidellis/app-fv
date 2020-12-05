@@ -7,7 +7,7 @@ export interface IFeed {
     likes: number;
     postPath: string;
     titulo: string;
-    thumbnail: string;
+    thumbnail?: string;
 }
 
 export interface IPost {

@@ -15,8 +15,7 @@ const feedService = new FeedService();
 
 export const PostScreen: React.FC<{ route: RouteProp<any, string> }> = (props) => {
   const [post, setPost] = useState<IPost>();
-  const [offsetY, setOffsetY] = useState<number>(0);
-  const [frameHeight, setFrameHeight] = useState<number>(0);
+  const [readPercentage, setReadPercentage] = useState<number>(0);
 
   const feed: IFeed = props.route.params?.feed;
 
@@ -35,11 +34,15 @@ export const PostScreen: React.FC<{ route: RouteProp<any, string> }> = (props) =
   return (
     <Container>
       <ScrollView 
-        onLayout={e => setFrameHeight(e.nativeEvent.layout.height)}
+        scrollEventThrottle={5}
         onScroll={e => {
-          const currOffset = e.nativeEvent.contentOffset.y;
-          if (currOffset > offsetY) {
-            setOffsetY(currOffset);
+          const { layoutMeasurement, contentOffset, contentSize } = e.nativeEvent;
+          const scrollViewSize = layoutMeasurement.height;
+          const contentSizeHeight = contentSize.height;
+          const currentLocationPercentage = contentOffset.y / (contentSizeHeight - scrollViewSize);
+
+          if (currentLocationPercentage > readPercentage) {
+            setReadPercentage(currentLocationPercentage);
           }
         }}
         style={{ padding: 20 }}
@@ -55,7 +58,7 @@ export const PostScreen: React.FC<{ route: RouteProp<any, string> }> = (props) =
           }
         </Texto>
       </ScrollView>
-      <ProgressBar progress={offsetY/(frameHeight-150)}/>
+      <ProgressBar progress={readPercentage}/>
     </Container>
   );
 };

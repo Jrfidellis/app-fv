@@ -18,7 +18,6 @@ export const AgendaScreen = () => {
   const getAgendaItens = () => {
     agendaService.getEventosGroupByDay()
       .then((e) => {
-        console.log(e);
         setDiasDeEvento(e);
         setError(false);
       })

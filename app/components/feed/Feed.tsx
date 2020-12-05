@@ -21,7 +21,7 @@ export function Feed() {
 
   const getFeedItens = (page: number) => {
     feedService
-      .getFeed(page, 10)
+      .getFeed(10, feed[feed.length - 1])
       .then(novosItens => { 
         setFeed([...feed, ...novosItens]);
         setError(false);
@@ -53,7 +53,12 @@ export function Feed() {
     <FlatList
       data={feed}
       keyExtractor={item => item.id}
-      onScrollEndDrag={() => setPagina(pagina + 1)}
+      onScrollEndDrag={(e) => {
+        // evita recarregar quando o usuário faz scroll pra cima
+        if (e.nativeEvent.contentOffset.y > 0) {
+          setPagina(pagina + 1);
+        }
+      }}
       renderItem={({ item: feed }) => (
       <PostCard
         onPress={() => navigate('Post', { feed })}
@@ -63,9 +68,9 @@ export function Feed() {
           <Title>{feed.titulo}</Title>
           <AutorPost feed={feed} />
         </Wrapper>
-        <View>
+        { feed.thumbnail && <View>
           <Thumbnail source={{ uri: feed.thumbnail }} />
-        </View>
+        </View>}
       </PostCard>
       )}
     />

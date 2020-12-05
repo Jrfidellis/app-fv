@@ -6,13 +6,11 @@ export class FeedService {
   private db = firestore()
   private collection = this.db.collection('Feed');
   
-  async getFeed(pagina: number, quantidadePorPagina: number) {
-    const primeiroItem = (quantidadePorPagina * pagina) - quantidadePorPagina;
+  async getFeed(quantidadePorPagina: number, ultimoVisivel?: IFeed) {
     const feedItens: IFeed[] = [];
-
     const value = await this.collection
       .orderBy('data')
-      .startAt(primeiroItem)
+      .startAfter(ultimoVisivel ?? 0)
       .limit(quantidadePorPagina)
       .get()
 
