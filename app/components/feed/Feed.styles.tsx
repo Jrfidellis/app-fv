@@ -25,12 +25,14 @@ export const PostCard = styled.TouchableOpacity`
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;
+    elevation: 1
 `;
 
 export const Title = styled.Text`
     margin-top: 5px;
     color: ${props => props.theme.colors.black};
     font-size: 18px;
+    width: 95%
 `;
 
 export const Thumbnail = styled.Image`
