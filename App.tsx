@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView, StyleProp, ViewStyle } from 'react-native';
+import { SafeAreaView, StyleProp, ViewStyle, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 import SplashScreen from 'react-native-splash-screen';
@@ -17,6 +17,7 @@ export const App = () => {
 
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor='#333'/>
       <Theme>
         <SafeAreaView style={safeAreaStyle}>
           <Routes/>
