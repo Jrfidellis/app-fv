@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AppFV</string>
+    <string name="app_name">Fôlego de Vida</string>
+    <color name="background">#0F90FA</color>
 </resources>

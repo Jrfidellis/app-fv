@@ -1,20 +1,32 @@
-import React from 'react';
-import styled from 'styled-components/native'; 
+import React, { useEffect } from 'react';
+import { SafeAreaView, StyleProp, ViewStyle } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Texto = styled.Text`
-  color: red;
-  position: absolute;
-  top: 80px;
-  left: 20px;
-  font-size: 22px;
-`
+import SplashScreen from 'react-native-splash-screen';
 
-const App = () => {
+import { Routes } from './app/routes/routes';
+import { theme, Theme } from './app/assets/styles/theme';
+
+import { requestUserPermission } from './app/core/notificationsPermission';
+
+export const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+    requestUserPermission();
+  }, []);
+
   return (
-    <>
-      <Texto>Teste</Texto>
-    </>
+    <NavigationContainer>
+      <Theme>
+        <SafeAreaView style={safeAreaStyle}>
+          <Routes/>
+        </SafeAreaView>
+      </Theme>
+    </NavigationContainer>
   );
 };
 
-export default App;
+const safeAreaStyle: StyleProp<ViewStyle> = {
+  flex: 1,
+  backgroundColor: theme.colors.theme
+}
